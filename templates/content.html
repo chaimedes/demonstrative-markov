@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{% block description %}{% endblock %}">
+	<title>{{ title }}</title>
+
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="./css/cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-white bg-dark contentpage">
+    
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+	  <header class="mb-5">
+		  <div>
+			<h3 class="float-md-start mb-0">Markov: A Didactic Demo</h3>
+			<nav class="nav nav-masthead justify-content-center float-md-end">
+				<a class="nav-link" href="/">Home</a>
+				<a class="nav-link" href="resources">Other Resources</a>
+				<a class="nav-link" href="#contactmodal" data-bs-toggle="modal" >Contact</a>
+		  </nav>
+		</div>
+	  </header>
+	
+	  <main class="px-3">
+		  <h1 class="lead-primary">{{ title }}</h1>
+		  {% block content %}{% endblock %}
+	  </main>
+	 
+	  <aside class="modal" id="contactmodal" tabindex=-1">
+		  <article class="modal-dialog">
+			  <main class="modal-content">
+				  <div class="modal-header">Contact</div>
+				  <div class="modal-body">
+					  <section>
+						  <p>
+						  If for some reason you have enough interest in this project to contact me, send me an email at: martin at mberlove dot com.
+						  <p>
+						  I also check <a href="https://noc.social/@MB">Mastodon</a> and <a href="https://twitter.com/MartinBerlove">Twitter/X</a> but less frequently.
+						  </p>
+					  </section>
+				  </div>
+			  </main>
+		  </article>
+	  </aside>
+	  
+	  <footer class="mt-auto text-white-50">
+		<p>Materials posted for informational purposes only.</p>
+		<script src="./js/bootstrap.min.js"></script>
+	  </footer>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+{% extends "content.html" %}
+<!-- <p class="lead">{{ saying }}</p> -->
+{% block content %}
+<article> 
+  <main>
+	  <section>
+		  <h2>Markov Chains and what they do</h2>
+		  <p>
+		  <a class="text-white notable" href="https://math.libretexts.org/Bookshelves/Applied_Mathematics/Applied_Finite_Mathematics_(Sekhon_and_Bloom)/10%3A_Markov_Chains/10.01%3A_Introduction_to_Markov_Chains">Decent formal introduction to Markov chains</a>
+		  </p>
+		  <p>
+		  Informally, a Markov chain is a <strong>semi-random (stochastic) sequence</strong> based on probable movements, with each next state selected by its likelihood of following. Over a number of movements this results in a chain of outcomes, producing effectively an example of the data being modeled. The more connections between data points, the more "random" the movement may appear -- or at least have more possible outcomes.
+		  <figure>
+			  <img src="./images/markovish.jpg">
+			  <figcaption class="figure-caption">Very simplified and almost accurate representation of a Markov chain.</figcaption>
+		  </figure>
+		  </p>
+		  <p>
+		  In practice this means that a generated Markov chain will model the data well given a sufficiently large input. This is easiest to represent with text generation, as with this demo, where the output will follow the patterns of the input text, and generate similar text probabilistically.
+		  </p>
+		  <p>Realistically, text generation is not a very useful purpose for Markov chains in most cases, as the demo shows! But text is a common demonstration because it visually reflects the probabilities of the outcome space. Most commonly in the real world Markov chains analyze <a href="https://www.investopedia.com/articles/financial-theory/08/monte-carlo-multivariate-model.asp">financial probabilities</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5862921/">chemical or physical interactions</a> that follow simple rules, or <a href="https://direct.mit.edu/comj/article-abstract/23/2/19/93398/Making-Music-with-Algorithms-A-Case-Study-System?redirectedFrom=fulltext">some kinds of procedurally-generated designs</a> (where the outcome is constrained). See also: <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo method</a>.
+		  </p>
+		  <p>
+		  A more conceptual conclusion drawn from using Markov chains is that <strong>relatively simple processes can often result in complex desirable behaviors.</strong> Data scientists, programmers, and analysts all benefit by having a full toolbag of such methods, Markov and others, which can be implemented efficiently and modified rapidly to powerful effect!
+		  </p>
+	  </section>
+	  <section>
+		  <h2>AI Resources - Technical and Philosophical</h2>
+		  <p>
+		  The field of modern AI is of course broad in scope and high in complexity -- though many of its applications aren't, thanks to tools and frameworks intended to bring AI development into our everyday use in development. You don't need to derive the slope of an activation function in order to get your hands dirty with the latest tech.
+		  </p>
+		  <p>
+		  More and more fields also study AI from their own perspectives, including psychology, anthropology, and philosophy. 
+		  </p>
+		  <p>
+		  Here is a small list of starting resources for further learning. In no way should this list be considered complete, authoritative, or likely to stay up to date.
+		  </p>
+		  <p>
+		  <ul>
+			  <li><a href="https://ai-guide.future.mozilla.org/">Mozilla's AI Guide</a> (very digestible)</a></li>
+			  <li><a href="https://huggingface.co/">HuggingFace</a> - <em>the</em> hub for all things AI.</li>
+			  <li><a href="https://www.coursera.org/specializations/deep-learning">The essential Deep Learning courses</a>. Fairly rigorous content but top-notch for getting started in the technicals.</li>
+			  <li>Lastly, I occasionally post about AI on <a href="https://mberlove.com/blog">my blog</a>.</li>
+		  </ul>
+		  </p>
+		  <p>
+		  </p>
+	  </section>
+
+	  </section>
+  </main>
+</article>
+{% endblock %}

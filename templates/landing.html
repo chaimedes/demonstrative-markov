@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Markov text-generating demo, no LLMs required.">
+	<title>Markov Chains: A Didactic Demo</title>
+
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="./css/cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+	  <header class="mb-5">
+		<div>
+			<h3 class="float-md-start mb-0">Markov: A Didactic Demo</h3>
+		  <nav class="nav nav-masthead justify-content-center float-md-end">
+			<a class="nav-link active" href="#learnmoremodal" data-bs-toggle="modal"></a>
+			<a class="nav-link" href="resources">Resources</a>
+			<a class="nav-link" href="#contactmodal" data-bs-toggle="modal" >Contact</a>
+		  </nav>
+		</div>
+	  </header>
+
+	  <main class="px-3">
+		  <h1 class="lead-primary">{{ name }} Says:</h1>
+		<p class="lead">{{ saying }}</p>
+		<p class="lead" onclick="javascript:location.reload()"> 
+			<svg id="redo-image" viewBox="-1 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow_repeat [#236]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-302.000000, -7080.000000)" fill="#999999"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M260,6930 C260,6933 257.308,6936 254,6936 C250.692,6936 248,6933.308 248,6930 C248,6926.692 250.692,6924 254,6924 L254,6926 L259,6923 L254,6920 L254,6922 C249.582,6922 246,6925.582 246,6930 C246,6934.418 249.582,6938 254,6938 C258.418,6938 262,6935 262,6930 L260,6930 Z" id="arrow_repeat-[#236]"> </path> </g> </g> </g> </g></svg>
+		</p>
+		<p class="lead bufferage">
+		  <a href="#learnmoremodal" data-bs-toggle="modal" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+		</p>
+	  </main>
+
+	  <aside class="modal" id="contactmodal" tabindex=-1">
+		  <article class="modal-dialog">
+			  <main class="modal-content">
+				  <div class="modal-header">Contact</div>
+				  <div class="modal-body">
+					  <section>
+						  <p>
+						  If for some reason you have enough interest in this project to contact me, send me an email at: martin at mberlove dot com.
+						  <p>
+						  I also check <a href="https://noc.social/@MB">Mastodon</a> and <a href="https://twitter.com/MartinBerlove">Twitter/X</a> but less frequently.
+						  </p>
+					  </section>
+				  </div>
+			  </main>
+		  </article>
+	  </aside>
+	  
+	  <aside class="modal" id="learnmoremodal" tabindex=-1>
+		  <article class="modal-dialog">
+			  <main class="modal-content">
+				  <div class="modal-header">
+					  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				  </div>
+				  <div class="modal-body">
+					  <section>
+						<h2>What is this?</h2>
+						<p>
+						It is a very basic text generator, to demonstrate simple processes that produce useful results. It uses a <a href="/resources">Markov chain</a> to ingests a body of text and randomly generate a following token selected from the possible connections present in the digested text.
+						</p>
+					  </section>
+					  
+					  <section>
+						  <h2>What's the point?</h2>
+						  <p>
+						  I thought it would be interesting to demo a proof-of-concept in the order of 50 lines of code. There are many examples out there but few are visually obvious. The goal, in short, is to show that not every task needs advanced AI!</p>
+						  <p>
+							Additionally, this code is easy to tweak, and adjusting tone of the output requires only changing out the relatively small amount of text needed for a flexible result. So a Markov-chain text generator can be put in place quickly, easily, and at effectively zero cost.
+						  </p>
+					  </section>
+					  <section>
+						<h2>But it's not very good!</h2>
+						<p>
+						Yeah, it's not really supposed to be.
+						</p>
+						<p>
+						Markov generators have a number of practical applications. Realistic text generation is not one of them. But it <em>does</em> demonstrate the old but easily forgotten concept that simple algorithms have an important place in the programmatic toolkit. A Markov-chain generator won't be creative like a GPT, but a GPT would be ungainly if applied to contexts with extremely narrow output vectors.
+						</p>
+						<p>
+						In fact the very controversy of Bing Chat and other GPTs that have "gotten in trouble" highlights the desirability of narrow-scope solutions. Advanced predictive models have a high degree of freedom, and this leads to unwanted behaviors that are sometimes called "unpredictable" but are in fact very predictable, because they are modeled on the traits of human culture! It's much harder to get a damaging "hallucination" out of an algorithm that has no model for what language means.</p>
+						<p>
+						Lastly, even when we achieve fast, efficient compute for LLMs, and resources no longer present a strain, there will always still be many uses for small, isolated, slimform iteration such as Markov chains (and other tools) can provide.
+						</p>
+					  </section>
+
+					  <section>
+						  <h2>How can I learn more?</h2>
+						  <p>
+						  If you just want to understand how Markov chains work, read <a href="https://math.libretexts.org/Bookshelves/Applied_Mathematics/Applied_Finite_Mathematics_(Sekhon_and_Bloom)/10%3A_Markov_Chains/10.01%3A_Introduction_to_Markov_Chains">this</a> and <a href="https://en.wikipedia.org/wiki/Markov_chain">this</a>.</p>
+						  <p>
+						  If you're curious about the code, here's a <a href="https://jsfiddle.net/__mber/vxzad27n">JSFiddle all set up for you to experiment with.</a></p>
+						  <p>
+						  And if you're interested in broader discussions around modern AI, its utility, and its side effects, the <a href="/resources">resources page</a> offers a number of helpful links.
+						  </p>
+					  </section>
+				  </div>
+			  </main>
+		  </article>
+	  </aside>
+	  <footer class="mt-auto text-white-50">
+		<p>Materials posted for informational purposes only.</p>
+		<script src="./js/bootstrap.min.js"></script>
+	  </footer>
+	</div>
+  </body>
+</html>
